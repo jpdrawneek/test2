@@ -9,3 +9,4 @@
 /vendor/symfony/
 /vendor/twig/
 /composer.lock
+/vendor/guzzlehttp/
