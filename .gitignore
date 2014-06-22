@@ -1,0 +1,11 @@
+/bin/
+/vendor/doctrine/
+/vendor/autoload.php
+/vendor/pimple/
+/vendor/psr/
+/vendor/behat/
+/vendor/silex/
+/vendor/composer/
+/vendor/symfony/
+/vendor/twig/
+/composer.lock

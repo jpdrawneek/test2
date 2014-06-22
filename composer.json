@@ -1,0 +1,29 @@
+{
+    "name": "jpdrawneek/Test2",
+    "description": "Description of project test2.",
+    "authors": [
+        {
+            "name": "jpdrawneek",
+            "email": "jpd@drawneek.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Test2": "src/" }
+    },
+    "require": {
+        "silex/silex":          "~1.1",
+        "twig/twig":            ">=1.8,<2.0-dev",
+        "doctrine/dbal":        "2.2.*",
+        "symfony/twig-bridge":  "~2.3",
+        "symfony/form":         "~2.3",
+        "symfony/validator":    "~2.3",
+        "symfony/config":       "~2.3",
+        "symfony/translation":  "~2.3"
+    },
+    "require-dev": {
+        "behat/behat": "2.4.*@stable"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}
