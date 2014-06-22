@@ -52,5 +52,15 @@ class ION {
             return FALSE;
         }
     }
+    
+    public function paginate($count, $parts, $query) {
+        $output = array();
+        for ($i=1; $i < $count; $i++) {
+            $parts['page'] = ($i + 1);
+            $result = $this->search($parts, $query);
+            $output = array_merge($output, $result);
+        }
+        return $output;
+    }
 }
 

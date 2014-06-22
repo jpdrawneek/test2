@@ -19,6 +19,34 @@ class Brand {
           'search_availability' => 'iplayer',
         );
         $result = $this->app['ION']->search($parts, $query);
-        return $app['twig']->render('brand_list.twig', array('programs' => $result['blocklist']));
+        $paginationFlag = FALSE;
+        if ($result['count'] > 1) {
+            if ($result['count'] > 10) {
+                $count = 10;
+                $paginationFlag = TRUE;
+            } else {
+                $count = $result['count'];
+            }
+            $result['blocklist'] = array_merge($result['blocklist'], $this->app['ION']->paginate($count, $parts, $query)['blocklist']);
+        }
+        $output = array();
+        foreach ($result['blocklist'] AS $item) {
+            if (strpos($item['brand_title'], $query) !== FALSE) {
+                $output[] = $item;
+            }
+        }
+        return $app['twig']->render('brand_list.twig', array('programs' => $output, 'pagination' => $paginationFlag));
     }
+    
+    public function stripOtherBrands($blocklist, $query) {
+        $output = array();
+        foreach ($blocklist AS $item) {
+            if (strpos($item['brand_title'], $query) !== FALSE) {
+                $output[] = $item;
+            }
+        }
+        return $output;
+    }
+    
+    
 }

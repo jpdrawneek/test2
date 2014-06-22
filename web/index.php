@@ -20,5 +20,6 @@ $app['ION'] = $app->share(function () {
 
 $app->match('/', 'Test2\\Controllers\\Index::index');
 $app->match('/brands/{search}', 'Test2\\Controllers\\Brand::search');
+$app->match('/brands/{search}/{page}', 'Test2\\Controllers\\Brand::search');
 
 $app->run();
